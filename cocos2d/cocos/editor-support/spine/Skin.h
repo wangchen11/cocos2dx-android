@@ -1,9 +1,9 @@
 /******************************************************************************
  * Spine Runtimes Software License v2.5
- *
+ * 
  * Copyright (c) 2013-2016, Esoteric Software
  * All rights reserved.
- *
+ * 
  * You are granted a perpetual, non-exclusive, non-sublicensable, and
  * non-transferable license to use, install, execute, and perform the Spine
  * Runtimes software and derivative works solely for personal or internal
@@ -15,7 +15,7 @@
  * or other intellectual property or proprietary rights notices on or in the
  * Software, including any copy thereof. Redistributions in binary or source
  * form must include this license and terms.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ESOTERIC SOFTWARE "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
@@ -31,7 +31,6 @@
 #ifndef SPINE_SKIN_H_
 #define SPINE_SKIN_H_
 
-#include <spine/dll.h>
 #include <spine/Attachment.h>
 
 #ifdef __cplusplus
@@ -64,19 +63,19 @@ typedef struct {
 	_Entry* entries;
 } _spSkin;
 
-SP_API spSkin* spSkin_create (const char* name);
-SP_API void spSkin_dispose (spSkin* self);
+spSkin* spSkin_create (const char* name);
+void spSkin_dispose (spSkin* self);
 
 /* The Skin owns the attachment. */
-SP_API void spSkin_addAttachment (spSkin* self, int slotIndex, const char* name, spAttachment* attachment);
+void spSkin_addAttachment (spSkin* self, int slotIndex, const char* name, spAttachment* attachment);
 /* Returns 0 if the attachment was not found. */
-SP_API spAttachment* spSkin_getAttachment (const spSkin* self, int slotIndex, const char* name);
+spAttachment* spSkin_getAttachment (const spSkin* self, int slotIndex, const char* name);
 
 /* Returns 0 if the slot or attachment was not found. */
-SP_API const char* spSkin_getAttachmentName (const spSkin* self, int slotIndex, int attachmentIndex);
+const char* spSkin_getAttachmentName (const spSkin* self, int slotIndex, int attachmentIndex);
 
 /** Attach each attachment in this skin if the corresponding attachment in oldSkin is currently attached. */
-SP_API void spSkin_attachAll (const spSkin* self, struct spSkeleton* skeleton, const spSkin* oldspSkin);
+void spSkin_attachAll (const spSkin* self, struct spSkeleton* skeleton, const spSkin* oldspSkin);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spSkin Skin;

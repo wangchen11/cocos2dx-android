@@ -1,9 +1,9 @@
 /******************************************************************************
  * Spine Runtimes Software License v2.5
- *
+ * 
  * Copyright (c) 2013-2016, Esoteric Software
  * All rights reserved.
- *
+ * 
  * You are granted a perpetual, non-exclusive, non-sublicensable, and
  * non-transferable license to use, install, execute, and perform the Spine
  * Runtimes software and derivative works solely for personal or internal
@@ -15,7 +15,7 @@
  * or other intellectual property or proprietary rights notices on or in the
  * Software, including any copy thereof. Redistributions in binary or source
  * form must include this license and terms.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ESOTERIC SOFTWARE "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
@@ -31,7 +31,6 @@
 #ifndef SPINE_MESHATTACHMENT_H_
 #define SPINE_MESHATTACHMENT_H_
 
-#include <spine/dll.h>
 #include <spine/Attachment.h>
 #include <spine/VertexAttachment.h>
 #include <spine/Atlas.h>
@@ -60,7 +59,7 @@ struct spMeshAttachment {
 	int trianglesCount;
 	unsigned short* triangles;
 
-	spColor color;
+	float r, g, b, a;
 
 	int hullLength;
 
@@ -73,14 +72,16 @@ struct spMeshAttachment {
 	float width, height;
 };
 
-SP_API spMeshAttachment* spMeshAttachment_create (const char* name);
-SP_API void spMeshAttachment_updateUVs (spMeshAttachment* self);
-SP_API void spMeshAttachment_setParentMesh (spMeshAttachment* self, spMeshAttachment* parentMesh);
+spMeshAttachment* spMeshAttachment_create (const char* name);
+void spMeshAttachment_updateUVs (spMeshAttachment* self);
+void spMeshAttachment_computeWorldVertices (spMeshAttachment* self, spSlot* slot, float* worldVertices);
+void spMeshAttachment_setParentMesh (spMeshAttachment* self, spMeshAttachment* parentMesh);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spMeshAttachment MeshAttachment;
 #define MeshAttachment_create(...) spMeshAttachment_create(__VA_ARGS__)
 #define MeshAttachment_updateUVs(...) spMeshAttachment_updateUVs(__VA_ARGS__)
+#define MeshAttachment_computeWorldVertices(...) spMeshAttachment_computeWorldVertices(__VA_ARGS__)
 #define MeshAttachment_setParentMesh(...) spMeshAttachment_setParentMesh(__VA_ARGS__)
 #endif
 

@@ -1,9 +1,9 @@
 /******************************************************************************
  * Spine Runtimes Software License v2.5
- *
+ * 
  * Copyright (c) 2013-2016, Esoteric Software
  * All rights reserved.
- *
+ * 
  * You are granted a perpetual, non-exclusive, non-sublicensable, and
  * non-transferable license to use, install, execute, and perform the Spine
  * Runtimes software and derivative works solely for personal or internal
@@ -15,7 +15,7 @@
  * or other intellectual property or proprietary rights notices on or in the
  * Software, including any copy thereof. Redistributions in binary or source
  * form must include this license and terms.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ESOTERIC SOFTWARE "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
@@ -31,7 +31,6 @@
 #ifndef SPINE_ANIMATIONSTATEDATA_H_
 #define SPINE_ANIMATIONSTATEDATA_H_
 
-#include <spine/dll.h>
 #include <spine/Animation.h>
 #include <spine/SkeletonData.h>
 
@@ -53,13 +52,13 @@ typedef struct spAnimationStateData {
 #endif
 } spAnimationStateData;
 
-SP_API spAnimationStateData* spAnimationStateData_create (spSkeletonData* skeletonData);
-SP_API void spAnimationStateData_dispose (spAnimationStateData* self);
+spAnimationStateData* spAnimationStateData_create (spSkeletonData* skeletonData);
+void spAnimationStateData_dispose (spAnimationStateData* self);
 
-SP_API void spAnimationStateData_setMixByName (spAnimationStateData* self, const char* fromName, const char* toName, float duration);
-SP_API void spAnimationStateData_setMix (spAnimationStateData* self, spAnimation* from, spAnimation* to, float duration);
+void spAnimationStateData_setMixByName (spAnimationStateData* self, const char* fromName, const char* toName, float duration);
+void spAnimationStateData_setMix (spAnimationStateData* self, spAnimation* from, spAnimation* to, float duration);
 /* Returns 0 if there is no mixing between the animations. */
-SP_API float spAnimationStateData_getMix (spAnimationStateData* self, spAnimation* from, spAnimation* to);
+float spAnimationStateData_getMix (spAnimationStateData* self, spAnimation* from, spAnimation* to);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spAnimationStateData AnimationStateData;

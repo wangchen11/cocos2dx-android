@@ -1,9 +1,9 @@
 /******************************************************************************
  * Spine Runtimes Software License v2.5
- *
+ * 
  * Copyright (c) 2013-2016, Esoteric Software
  * All rights reserved.
- *
+ * 
  * You are granted a perpetual, non-exclusive, non-sublicensable, and
  * non-transferable license to use, install, execute, and perform the Spine
  * Runtimes software and derivative works solely for personal or internal
@@ -15,7 +15,7 @@
  * or other intellectual property or proprietary rights notices on or in the
  * Software, including any copy thereof. Redistributions in binary or source
  * form must include this license and terms.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ESOTERIC SOFTWARE "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
@@ -31,7 +31,6 @@
 #ifndef SPINE_IKCONSTRAINT_H_
 #define SPINE_IKCONSTRAINT_H_
 
-#include <spine/dll.h>
 #include <spine/IkConstraintData.h>
 #include <spine/Bone.h>
 
@@ -43,13 +42,15 @@ struct spSkeleton;
 
 typedef struct spIkConstraint {
 	spIkConstraintData* const data;
-
+	
 	int bonesCount;
 	spBone** bones;
-
+	
 	spBone* target;
 	int bendDirection;
 	float mix;
+
+	int level;
 
 #ifdef __cplusplus
 	spIkConstraint() :
@@ -58,18 +59,19 @@ typedef struct spIkConstraint {
 		bones(0),
 		target(0),
 		bendDirection(0),
-		mix(0) {
+		mix(0),
+		level(0) {
 	}
 #endif
 } spIkConstraint;
 
-SP_API spIkConstraint* spIkConstraint_create (spIkConstraintData* data, const struct spSkeleton* skeleton);
-SP_API void spIkConstraint_dispose (spIkConstraint* self);
+spIkConstraint* spIkConstraint_create (spIkConstraintData* data, const struct spSkeleton* skeleton);
+void spIkConstraint_dispose (spIkConstraint* self);
 
-SP_API void spIkConstraint_apply (spIkConstraint* self);
+void spIkConstraint_apply (spIkConstraint* self);
 
-SP_API void spIkConstraint_apply1 (spBone* bone, float targetX, float targetY, float alpha);
-SP_API void spIkConstraint_apply2 (spBone* parent, spBone* child, float targetX, float targetY, int bendDirection, float alpha);
+void spIkConstraint_apply1 (spBone* bone, float targetX, float targetY, float alpha);
+void spIkConstraint_apply2 (spBone* parent, spBone* child, float targetX, float targetY, int bendDirection, float alpha);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spIkConstraint IkConstraint;

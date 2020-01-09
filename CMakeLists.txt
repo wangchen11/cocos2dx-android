@@ -47,38 +47,28 @@ if (APPLE OR WINDOWS)
 endif ()
 
 include_directories(
-        Classes/Scene
-        Classes/Scene/JniScene
-		Classes/Scene/NetworkScene
-		Classes/Scene/FileUtilScene
-		Classes/Scene/ActionScene
-		Classes/Scene/TabControlScene
+        Classes/
 )
 
 # add cross-platforms source files and header files 
 list(APPEND GAME_SOURCE
-        Classes/AppDelegate.cpp
-        Classes/HelloWorldScene.cpp
-        Classes/Scene/JniScene/JniScene.cpp
-        Classes/VisibleRect.cpp
-        Classes/Scene/JniScene/JniCallback.cpp
-        Classes/Scene/NetworkScene/HttpClientScene.cpp
-		Classes/Scene/FileUtilScene/FileUtilScene.cpp
-		Classes/Scene/ActionScene/ActionScene.cpp
-        Classes/Scene/NetworkScene/JsonScene.cpp
-		Classes/Scene/TabControlScene/TabControlScene.cpp
+		./Classes/AppDelegate.cpp
+		./Classes/BatchingExample.cpp
+		./Classes/GoblinsExample.cpp
+		./Classes/RaptorExample.cpp
+		./Classes/SimpleCommand.cpp
+		./Classes/SpineboyExample.cpp
+		./Classes/TankExample.cpp
         )
 list(APPEND GAME_HEADER
-        Classes/AppDelegate.h
-        Classes/HelloWorldScene.h
-        Classes/Scene/JniScene/JniScene.h
-        Classes/VisibleRect.h
-        Classes/Scene/JniScene/JniCallback.h
-        Classes/Scene/NetworkScene/HttpClientScene.h
-		Classes/Scene/FileUtilScene/FileUtilScene.h
-		Classes/Scene/ActionScene/ActionScene.h
-        Classes/Scene/NetworkScene/JsonScene.h
-		Classes/Scene/TabControlScene/TabControlScene.h
+		./Classes/AppDelegate.h
+		./Classes/AppMacros.h
+		./Classes/BatchingExample.h
+		./Classes/GoblinsExample.h
+		./Classes/RaptorExample.h
+		./Classes/SimpleCommand.h
+		./Classes/SpineboyExample.h
+		./Classes/TankExample.h
         )
 
 if (ANDROID)

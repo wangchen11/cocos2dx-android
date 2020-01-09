@@ -1,9 +1,9 @@
 /******************************************************************************
  * Spine Runtimes Software License v2.5
- *
+ * 
  * Copyright (c) 2013-2016, Esoteric Software
  * All rights reserved.
- *
+ * 
  * You are granted a perpetual, non-exclusive, non-sublicensable, and
  * non-transferable license to use, install, execute, and perform the Spine
  * Runtimes software and derivative works solely for personal or internal
@@ -15,7 +15,7 @@
  * or other intellectual property or proprietary rights notices on or in the
  * Software, including any copy thereof. Redistributions in binary or source
  * form must include this license and terms.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ESOTERIC SOFTWARE "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
@@ -31,7 +31,6 @@
 #ifndef SPINE_PATHCONSTRAINT_H_
 #define SPINE_PATHCONSTRAINT_H_
 
-#include <spine/dll.h>
 #include <spine/PathConstraintData.h>
 #include <spine/Bone.h>
 #include <spine/Slot.h>
@@ -93,11 +92,11 @@ typedef struct spPathConstraint {
 
 #define SP_PATHCONSTRAINT_
 
-SP_API spPathConstraint* spPathConstraint_create (spPathConstraintData* data, const struct spSkeleton* skeleton);
-SP_API void spPathConstraint_dispose (spPathConstraint* self);
+spPathConstraint* spPathConstraint_create (spPathConstraintData* data, const struct spSkeleton* skeleton);
+void spPathConstraint_dispose (spPathConstraint* self);
 
-SP_API void spPathConstraint_apply (spPathConstraint* self);
-SP_API float* spPathConstraint_computeWorldPositions(spPathConstraint* self, spPathAttachment* path, int spacesCount, int/*bool*/ tangents, int/*bool*/percentPosition, int/**/percentSpacing);
+void spPathConstraint_apply (spPathConstraint* self);
+float* spPathConstraint_computeWorldPositions(spPathConstraint* self, spPathAttachment* path, int spacesCount, int/*bool*/ tangents, int/*bool*/percentPosition, int/**/percentSpacing);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spPathConstraint PathConstraint;

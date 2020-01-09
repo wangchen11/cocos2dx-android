@@ -1,9 +1,0 @@
-//
-// Created by 123 on 2019/5/16.
-//
-
-#ifndef PROJ_ANDROID_JNICALLBACK_H
-#define PROJ_ANDROID_JNICALLBACK_H
-
-
-#endif //PROJ_ANDROID_JNICALLBACK_H

@@ -1,9 +1,9 @@
 /******************************************************************************
  * Spine Runtimes Software License v2.5
- *
+ * 
  * Copyright (c) 2013-2016, Esoteric Software
  * All rights reserved.
- *
+ * 
  * You are granted a perpetual, non-exclusive, non-sublicensable, and
  * non-transferable license to use, install, execute, and perform the Spine
  * Runtimes software and derivative works solely for personal or internal
@@ -15,7 +15,7 @@
  * or other intellectual property or proprietary rights notices on or in the
  * Software, including any copy thereof. Redistributions in binary or source
  * form must include this license and terms.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ESOTERIC SOFTWARE "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
@@ -64,9 +64,6 @@ public:
 
 	void setDebugBonesEnabled(bool enabled);
 	bool getDebugBonesEnabled() const;
-	
-	void setDebugMeshesEnabled(bool enabled);
-	bool getDebugMeshesEnabled() const;
 
 	// --- Convenience methods for common Skeleton_* functions.
 	void updateWorldTransform ();
@@ -94,14 +91,6 @@ public:
 	bool setAttachment (const std::string& slotName, const std::string& attachmentName);
 	/* @param attachmentName May be 0 for no attachment. */
 	bool setAttachment (const std::string& slotName, const char* attachmentName);
-	
-	/* Enables/disables two color tinting for this instance. May break batching */
-	void setTwoColorTint(bool enabled);
-	/* Whether two color tinting is enabled */
-	bool isTwoColorTint();
-	
-	/* Sets the vertex effect to be used, set to 0 to disable vertex effects */
-	void setVertexEffect(spVertexEffect* effect);
 
     // --- BlendProtocol
     virtual void setBlendFunc (const cocos2d::BlendFunc& blendFunc)override;
@@ -128,7 +117,7 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
 	void setSkeletonData (spSkeletonData* skeletonData, bool ownsSkeletonData);
 	virtual AttachmentVertices* getAttachmentVertices (spRegionAttachment* attachment) const;
-	virtual AttachmentVertices* getAttachmentVertices (spMeshAttachment* attachment) const;	
+	virtual AttachmentVertices* getAttachmentVertices (spMeshAttachment* attachment) const;
 
 	bool _ownsSkeletonData;
 	spAtlas* _atlas;
@@ -141,9 +130,6 @@ protected:
 	float _timeScale;
 	bool _debugSlots;
 	bool _debugBones;
-	bool _debugMeshes;
-	spSkeletonClipping* _clipper;
-	spVertexEffect* _effect;
 };
 
 }

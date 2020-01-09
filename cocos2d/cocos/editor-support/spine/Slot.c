@@ -1,9 +1,9 @@
 /******************************************************************************
  * Spine Runtimes Software License v2.5
- *
+ * 
  * Copyright (c) 2013-2016, Esoteric Software
  * All rights reserved.
- *
+ * 
  * You are granted a perpetual, non-exclusive, non-sublicensable, and
  * non-transferable license to use, install, execute, and perform the Spine
  * Runtimes software and derivative works solely for personal or internal
@@ -15,7 +15,7 @@
  * or other intellectual property or proprietary rights notices on or in the
  * Software, including any copy thereof. Redistributions in binary or source
  * form must include this license and terms.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ESOTERIC SOFTWARE "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
@@ -40,15 +40,12 @@ spSlot* spSlot_create (spSlotData* data, spBone* bone) {
 	spSlot* self = SUPER(NEW(_spSlot));
 	CONST_CAST(spSlotData*, self->data) = data;
 	CONST_CAST(spBone*, self->bone) = bone;
-	spColor_setFromFloats(&self->color, 1, 1, 1, 1);
-	self->darkColor = data->darkColor == 0 ? 0 : spColor_create();
 	spSlot_setToSetupPose(self);
 	return self;
 }
 
 void spSlot_dispose (spSlot* self) {
 	FREE(self->attachmentVertices);
-	FREE(self->darkColor);
 	FREE(self);
 }
 
@@ -68,8 +65,10 @@ float spSlot_getAttachmentTime (const spSlot* self) {
 }
 
 void spSlot_setToSetupPose (spSlot* self) {
-	spColor_setFromColor(&self->color, &self->data->color);
-	if (self->darkColor) spColor_setFromColor(self->darkColor, self->data->darkColor);
+	self->r = self->data->r;
+	self->g = self->data->g;
+	self->b = self->data->b;
+	self->a = self->data->a;
 
 	if (!self->data->attachmentName)
 		spSlot_setAttachment(self, 0);

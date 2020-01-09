@@ -1,9 +1,9 @@
 /******************************************************************************
  * Spine Runtimes Software License v2.5
- *
+ * 
  * Copyright (c) 2013-2016, Esoteric Software
  * All rights reserved.
- *
+ * 
  * You are granted a perpetual, non-exclusive, non-sublicensable, and
  * non-transferable license to use, install, execute, and perform the Spine
  * Runtimes software and derivative works solely for personal or internal
@@ -15,7 +15,7 @@
  * or other intellectual property or proprietary rights notices on or in the
  * Software, including any copy thereof. Redistributions in binary or source
  * form must include this license and terms.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ESOTERIC SOFTWARE "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
@@ -30,8 +30,6 @@
 
 #ifndef SPINE_ATLAS_H_
 #define SPINE_ATLAS_H_
-
-#include <spine/dll.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -81,8 +79,8 @@ struct spAtlasPage {
 	spAtlasPage* next;
 };
 
-SP_API spAtlasPage* spAtlasPage_create (spAtlas* atlas, const char* name);
-SP_API void spAtlasPage_dispose (spAtlasPage* self);
+spAtlasPage* spAtlasPage_create (spAtlas* atlas, const char* name);
+void spAtlasPage_dispose (spAtlasPage* self);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spAtlasFormat AtlasFormat;
@@ -132,8 +130,8 @@ struct spAtlasRegion {
 	spAtlasRegion* next;
 };
 
-SP_API spAtlasRegion* spAtlasRegion_create ();
-SP_API void spAtlasRegion_dispose (spAtlasRegion* self);
+spAtlasRegion* spAtlasRegion_create ();
+void spAtlasRegion_dispose (spAtlasRegion* self);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spAtlasRegion AtlasRegion;
@@ -151,13 +149,13 @@ struct spAtlas {
 };
 
 /* Image files referenced in the atlas file will be prefixed with dir. */
-SP_API spAtlas* spAtlas_create (const char* data, int length, const char* dir, void* rendererObject);
+spAtlas* spAtlas_create (const char* data, int length, const char* dir, void* rendererObject);
 /* Image files referenced in the atlas file will be prefixed with the directory containing the atlas file. */
-SP_API spAtlas* spAtlas_createFromFile (const char* path, void* rendererObject);
-SP_API void spAtlas_dispose (spAtlas* atlas);
+spAtlas* spAtlas_createFromFile (const char* path, void* rendererObject);
+void spAtlas_dispose (spAtlas* atlas);
 
 /* Returns 0 if the region was not found. */
-SP_API spAtlasRegion* spAtlas_findRegion (const spAtlas* self, const char* name);
+spAtlasRegion* spAtlas_findRegion (const spAtlas* self, const char* name);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spAtlas Atlas;

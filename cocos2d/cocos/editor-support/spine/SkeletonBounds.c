@@ -1,9 +1,9 @@
 /******************************************************************************
  * Spine Runtimes Software License v2.5
- *
+ * 
  * Copyright (c) 2013-2016, Esoteric Software
  * All rights reserved.
- *
+ * 
  * You are granted a perpetual, non-exclusive, non-sublicensable, and
  * non-transferable license to use, install, execute, and perform the Spine
  * Runtimes software and derivative works solely for personal or internal
@@ -15,7 +15,7 @@
  * or other intellectual property or proprietary rights notices on or in the
  * Software, including any copy thereof. Redistributions in binary or source
  * form must include this license and terms.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ESOTERIC SOFTWARE "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
@@ -112,7 +112,7 @@ void spSkeletonBounds_update (spSkeletonBounds* self, spSkeleton* skeleton, int/
 		self->boundingBoxes = MALLOC(spBoundingBoxAttachment*, skeleton->slotsCount);
 
 		newPolygons = CALLOC(spPolygon*, skeleton->slotsCount);
-		memcpy(newPolygons, self->polygons, sizeof(spPolygon*) * internal->capacity);
+		memcpy(newPolygons, self->polygons, internal->capacity);
 		FREE(self->polygons);
 		self->polygons = newPolygons;
 
@@ -141,7 +141,7 @@ void spSkeletonBounds_update (spSkeletonBounds* self, spSkeleton* skeleton, int/
 			self->polygons[self->count] = polygon = spPolygon_create(boundingBox->super.worldVerticesLength);
 		}
 		polygon->count = boundingBox->super.worldVerticesLength;
-		spVertexAttachment_computeWorldVertices(SUPER(boundingBox), slot, 0, polygon->count, polygon->vertices, 0, 2);
+		spBoundingBoxAttachment_computeWorldVertices(boundingBox, slot, polygon->vertices);
 
 		if (updateAabb) {
 			int ii = 0;

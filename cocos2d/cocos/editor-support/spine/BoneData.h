@@ -1,9 +1,9 @@
 /******************************************************************************
  * Spine Runtimes Software License v2.5
- *
+ * 
  * Copyright (c) 2013-2016, Esoteric Software
  * All rights reserved.
- *
+ * 
  * You are granted a perpetual, non-exclusive, non-sublicensable, and
  * non-transferable license to use, install, execute, and perform the Spine
  * Runtimes software and derivative works solely for personal or internal
@@ -15,7 +15,7 @@
  * or other intellectual property or proprietary rights notices on or in the
  * Software, including any copy thereof. Redistributions in binary or source
  * form must include this license and terms.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ESOTERIC SOFTWARE "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
@@ -31,19 +31,9 @@
 #ifndef SPINE_BONEDATA_H_
 #define SPINE_BONEDATA_H_
 
-#include <spine/dll.h>
-
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-typedef enum {
-	SP_TRANSFORMMODE_NORMAL,
-	SP_TRANSFORMMODE_ONLYTRANSLATION,
-	SP_TRANSFORMMODE_NOROTATIONORREFLECTION,
-	SP_TRANSFORMMODE_NOSCALE,
-	SP_TRANSFORMMODE_NOSCALEORREFLECTION
-} spTransformMode;
 
 typedef struct spBoneData spBoneData;
 struct spBoneData {
@@ -52,7 +42,7 @@ struct spBoneData {
 	spBoneData* const parent;
 	float length;
 	float x, y, rotation, scaleX, scaleY, shearX, shearY;
-	spTransformMode transformMode;
+	int/*bool*/inheritRotation, inheritScale;
 
 #ifdef __cplusplus
 	spBoneData() :
@@ -64,13 +54,13 @@ struct spBoneData {
 		rotation(0),
 		scaleX(0), scaleY(0),
 		shearX(0), shearY(0),
-		transformMode(SP_TRANSFORMMODE_NORMAL) {
+		inheritRotation(0), inheritScale(0) {
 	}
 #endif
 };
 
-SP_API spBoneData* spBoneData_create (int index, const char* name, spBoneData* parent);
-SP_API void spBoneData_dispose (spBoneData* self);
+spBoneData* spBoneData_create (int index, const char* name, spBoneData* parent);
+void spBoneData_dispose (spBoneData* self);
 
 #ifdef SPINE_SHORT_NAMES
 typedef spBoneData BoneData;
