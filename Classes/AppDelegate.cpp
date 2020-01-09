@@ -36,6 +36,7 @@
 #include "RaptorExample.h"
 #include "BatchingExample.h"
 #include "AppMacros.h"
+#include "GoblinHornExample.h"
 
 USING_NS_CC;
 using namespace std;
@@ -98,7 +99,7 @@ bool AppDelegate::applicationDidFinishLaunching () {
 
 	// create a scene. it's an autorelease object
 	//auto scene = RaptorExample::scene();
-	auto scene = BatchingExample::scene();
+	auto scene = GoblinHornExample::scene();
 
 	// run
 	director->runWithScene(scene);

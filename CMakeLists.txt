@@ -59,6 +59,7 @@ list(APPEND GAME_SOURCE
 		./Classes/SimpleCommand.cpp
 		./Classes/SpineboyExample.cpp
 		./Classes/TankExample.cpp
+		./Classes/GoblinHornExample.cpp
         )
 list(APPEND GAME_HEADER
 		./Classes/AppDelegate.h
@@ -69,6 +70,7 @@ list(APPEND GAME_HEADER
 		./Classes/SimpleCommand.h
 		./Classes/SpineboyExample.h
 		./Classes/TankExample.h
+		./Classes/GoblinHornExample.h
         )
 
 if (ANDROID)
